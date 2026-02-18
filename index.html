@@ -3,62 +3,71 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Luxury International Fashion</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+<title>ARQÉNZA Luxury Fashion</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
 <style>
 
-/* ROOT COLOR */
+/* ===== ROOT COLOR ===== */
 :root{
---dark:#3b2a1f;
---brown:#6b4c35;
+--dark:#2c1f17;
+--brown:#5a3e2b;
 --gold:#d4af37;
 --cream:#f5efe6;
 }
 
-/* RESET */
-*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
-body{background:var(--cream);color:var(--dark);}
+/* ===== RESET ===== */
+*{margin:0;padding:0;box-sizing:border-box;}
+body{
+font-family:'Poppins',sans-serif;
+background:var(--cream);
+color:var(--dark);
+}
 
-/* NAVBAR */
+/* ===== NAV ===== */
 nav{
 position:fixed;
 top:0;
 width:100%;
 background:var(--dark);
 color:white;
-padding:15px 40px;
+padding:15px 30px;
 display:flex;
 justify-content:space-between;
 align-items:center;
 z-index:1000;
 }
 
-nav h1{color:var(--gold);font-family:'Playfair Display',serif;}
+.logo{
+font-family:'Playfair Display',serif;
+color:var(--gold);
+font-size:22px;
+}
 
-.cart-icon{
+.cart{
 cursor:pointer;
 position:relative;
 }
 
-.cart-count{
+.cart span{
 position:absolute;
 top:-8px;
 right:-10px;
 background:var(--gold);
 color:black;
-font-size:12px;
 padding:3px 7px;
+font-size:12px;
 border-radius:50%;
 }
 
-/* HERO */
+/* ===== HERO ===== */
 .hero{
 margin-top:70px;
-height:90vh;
+height:85vh;
 background:
-linear-gradient(rgba(59,42,31,0.7), rgba(59,42,31,0.8)),
-url("assets/hero-bg.jpg");
+linear-gradient(rgba(44,31,23,0.75), rgba(44,31,23,0.85)),
+url("assets/hero.jpg");
 background-size:cover;
 background-position:center;
 display:flex;
@@ -68,61 +77,63 @@ text-align:center;
 color:white;
 }
 
-.hero h2{
-font-size:50px;
+.hero h1{
 font-family:'Playfair Display',serif;
-animation:fadeIn 2s ease;
+font-size:48px;
+animation:fadeUp 1.5s ease;
 }
 
-@keyframes fadeIn{
+@keyframes fadeUp{
 from{opacity:0;transform:translateY(30px);}
 to{opacity:1;transform:translateY(0);}
 }
 
-/* SECTION */
-section{padding:60px 40px;}
-.section-title{
-font-size:28px;
-margin-bottom:30px;
-color:var(--dark);
-border-left:5px solid var(--gold);
-padding-left:10px;
+/* ===== FILTER ===== */
+.filter{
+display:flex;
+justify-content:center;
+gap:10px;
+flex-wrap:wrap;
+padding:30px 10px;
 }
 
-/* PRODUCT GRID */
+.filter button{
+padding:8px 18px;
+border:none;
+background:var(--brown);
+color:white;
+cursor:pointer;
+border-radius:20px;
+}
+
+.filter button.active{
+background:var(--gold);
+color:black;
+}
+
+/* ===== PRODUCTS ===== */
 .products{
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
 gap:20px;
+padding:0 30px 60px;
 }
 
 .card{
 background:white;
-border-radius:10px;
+border-radius:12px;
 overflow:hidden;
 box-shadow:0 5px 15px rgba(0,0,0,0.1);
 transition:0.3s;
 cursor:pointer;
-position:relative;
 }
 
 .card:hover{transform:translateY(-5px);}
 
 .card img{
 width:100%;
-height:250px;
+height:220px;
 object-fit:cover;
-}
-
-.discount{
-position:absolute;
-top:10px;
-left:10px;
-background:var(--gold);
-color:black;
-padding:5px 10px;
-font-size:12px;
-border-radius:20px;
 }
 
 .card-body{
@@ -134,24 +145,57 @@ color:var(--brown);
 font-weight:bold;
 }
 
-.old-price{
+.old{
 text-decoration:line-through;
 color:gray;
-font-size:14px;
+font-size:13px;
 }
 
-/* BUTTON */
+.discount{
+background:var(--gold);
+padding:3px 8px;
+font-size:11px;
+border-radius:15px;
+display:inline-block;
+margin-bottom:5px;
+}
+
+/* ===== BUTTON ===== */
 .btn{
 background:var(--gold);
 border:none;
-padding:8px 15px;
-margin-top:10px;
+padding:7px 12px;
 cursor:pointer;
+margin-top:8px;
 border-radius:5px;
 font-weight:bold;
 }
 
-/* POPUP */
+/* ===== CART PANEL ===== */
+.cart-panel{
+position:fixed;
+right:-350px;
+top:0;
+width:320px;
+height:100%;
+background:var(--dark);
+color:white;
+padding:20px;
+transition:0.4s;
+overflow-y:auto;
+z-index:2000;
+}
+
+.cart-panel.active{right:0;}
+
+.cart-panel h3{color:var(--gold);}
+
+.total{
+margin-top:15px;
+font-weight:bold;
+}
+
+/* ===== POPUP ===== */
 .popup{
 position:fixed;
 top:0;
@@ -162,78 +206,44 @@ background:rgba(0,0,0,0.7);
 display:none;
 align-items:center;
 justify-content:center;
-z-index:2000;
+z-index:3000;
 }
 
 .popup-content{
 background:white;
-padding:30px;
 width:90%;
-max-width:500px;
+max-width:450px;
+padding:20px;
 border-radius:10px;
 position:relative;
 }
 
-.close-btn{
+.close{
 position:absolute;
 top:10px;
 right:15px;
 cursor:pointer;
-font-size:20px;
 }
 
-/* CART SLIDE */
-.cart-panel{
-position:fixed;
-right:-400px;
-top:0;
-width:350px;
-height:100%;
-background:var(--dark);
-color:white;
-padding:20px;
-transition:0.4s;
-z-index:3000;
-overflow-y:auto;
-}
-
-.cart-panel.active{
-right:0;
-}
-
-/* GOLD SHIMMER */
-.gold-bg{
-background:linear-gradient(
-120deg,
-#3b2a1f 25%,
-#6b4c35 40%,
-#d4af37 50%,
-#6b4c35 60%,
-#3b2a1f 75%
-);
-background-size:200% auto;
-animation:shimmer 4s linear infinite;
-color:white;
-}
-
-@keyframes shimmer{
-to{background-position:200% center;}
-}
-
-/* COMMENT */
-.comment-box textarea{
-width:100%;
-padding:10px;
-margin-bottom:10px;
-}
-
-/* ABOUT */
-.about{
+/* ===== COMMENT ===== */
+.comment-section{
+padding:50px 30px;
 background:var(--brown);
 color:white;
 }
 
-/* FOOTER */
+.comment-section textarea{
+width:100%;
+padding:10px;
+margin:10px 0;
+}
+
+/* ===== ABOUT ===== */
+.about{
+padding:50px 30px;
+}
+
+/* ===== FOOTER ===== */
 footer{
 background:var(--dark);
 color:white;
@@ -241,135 +251,138 @@ text-align:center;
 padding:20px;
 }
 
-/* FULLSCREEN IMAGE */
-.fullscreen{
-position:fixed;
-top:0;
-left:0;
-width:100%;
-height:100%;
-background:black;
-display:none;
-align-items:center;
-justify-content:center;
-z-index:4000;
-}
-
-.fullscreen img{
-max-width:90%;
-max-height:90%;
-}
-
 </style>
 </head>
 <body>
 
 <nav>
-<h1>Luxury International</h1>
-<div class="cart-icon" onclick="toggleCart()">
-🛒
-<span class="cart-count" id="cart-count">0</span>
-</div>
+<div class="logo">ARQÉNZA</div>
+<div class="cart" onclick="toggleCart()">🛒 <span id="count">0</span></div>
 </nav>
 
-<div class="hero gold-bg">
-<h2>Luxury Fashion Collection</h2>
+<div class="hero">
+<h1>Luxury International Collection</h1>
 </div>
 
-<section>
-<h3 class="section-title">Best Seller</h3>
-<div class="products" id="product-list"></div>
-</section>
-
-<section class="about">
-<h3 class="section-title">Tentang Kami</h3>
-<p>Kami adalah brand fashion premium yang menghadirkan gamis elegan dan celana berkualitas untuk anak dan dewasa dengan standar internasional.</p>
-</section>
-
-<section>
-<h3 class="section-title">Komentar Pengunjung</h3>
-<div class="comment-box">
-<textarea placeholder="Tulis komentar..."></textarea>
-<button class="btn">Kirim</button>
+<div class="filter">
+<button onclick="filterCategory('all')" class="active">Semua</button>
+<button onclick="filterCategory('best')">Best Seller</button>
+<button onclick="filterCategory('unggulan')">Unggulan</button>
+<button onclick="filterCategory('gamis')">Gamis</button>
+<button onclick="filterCategory('celana')">Celana</button>
 </div>
-</section>
 
-<section>
-<h3 class="section-title">Lokasi Kami</h3>
-<iframe 
-src="https://www.google.com/maps/embed?pb=!1m18!..." 
-width="100%" height="300" style="border:0;" allowfullscreen="">
-</iframe>
-</section>
+<div class="products" id="productContainer"></div>
+
+<div class="about">
+<h2>Tentang Kami</h2>
+<p>ARQÉNZA adalah brand fashion premium dengan koleksi gamis elegan dan celana berkualitas untuk anak dan dewasa dengan sentuhan luxury modern.</p>
+</div>
+
+<div class="comment-section">
+<h2>Komentar Pengunjung</h2>
+<textarea id="commentInput" placeholder="Tulis komentar..."></textarea>
+<button class="btn" onclick="addComment()">Kirim</button>
+<div id="comments"></div>
+</div>
 
 <footer>
-© 2026 Luxury International Fashion
+© 2026 ARQÉNZA Fashion
 </footer>
+
+<div class="cart-panel" id="cartPanel">
+<h3>Keranjang</h3>
+<div id="cartItems"></div>
+<div class="total" id="totalPrice"></div>
+<button class="btn" onclick="checkout()">Checkout WhatsApp</button>
+</div>
 
 <div class="popup" id="popup">
 <div class="popup-content">
-<span class="close-btn" onclick="closePopup()">✖</span>
-<div id="popup-data"></div>
+<span class="close" onclick="closePopup()">✖</span>
+<div id="popupContent"></div>
 </div>
-</div>
-
-<div class="cart-panel" id="cart-panel">
-<h3>Keranjang</h3>
-<div id="cart-items"></div>
-</div>
-
-<div class="fullscreen" id="fullscreen" onclick="closeFull()">
-<img id="full-img">
 </div>
 
 <script>
 
 let products=[
-{
-name:"Gamis Premium Gold",
-price:450000,
-discount:10,
-desc:"Gamis elegan bahan premium nyaman dipakai.",
-img:"assets/gamis1.jpg"
-},
-{
-name:"Celana Anak Stylish",
-price:150000,
-discount:15,
-desc:"Celana anak bahan lembut dan kuat.",
-img:"assets/celana1.jpg"
-}
+{category:"best",name:"Gamis Gold Premium",price:450000,discount:10,img:"assets/gamis1.jpg"},
+{category:"unggulan",name:"Celana Exclusive",price:250000,discount:15,img:"assets/celana1.jpg"},
+{category:"gamis",name:"Gamis Elegant",price:400000,discount:5,img:"assets/gamis2.jpg"},
+{category:"gamis",name:"Gamis Luxury",price:420000,discount:8,img:"assets/gamis3.jpg"},
+{category:"gamis",name:"Gamis Modern",price:390000,discount:7,img:"assets/gamis4.jpg"},
+{category:"celana",name:"Celana Anak",price:150000,discount:10,img:"assets/celana2.jpg"},
+{category:"celana",name:"Celana Dewasa",price:220000,discount:12,img:"assets/celana3.jpg"},
+{category:"celana",name:"Celana Corduroy",price:300000,discount:15,img:"assets/celana4.jpg"}
 ];
 
 let cart=[];
 
-function renderProducts(){
-let container=document.getElementById("product-list");
+function renderProducts(list){
+let container=document.getElementById("productContainer");
 container.innerHTML="";
-products.forEach((p,i)=>{
-let finalPrice=p.price-(p.price*p.discount/100);
+list.forEach((p,i)=>{
+let final=p.price-(p.price*p.discount/100);
 container.innerHTML+=`
 <div class="card" onclick="showPopup(${i})">
-<span class="discount">-${p.discount}%</span>
-<img src="${p.img}" onclick="openFull(event,'${p.img}')">
+<img src="${p.img}">
 <div class="card-body">
+<span class="discount">-${p.discount}%</span>
 <h4>${p.name}</h4>
-<p class="old-price">Rp ${p.price}</p>
-<p class="price">Rp ${finalPrice}</p>
-<button class="btn" onclick="addToCart(event,${i})">Tambah</button>
+<p class="old">Rp ${p.price}</p>
+<p class="price">Rp ${final}</p>
+<button class="btn" onclick="addCart(event,${i})">Tambah</button>
 </div>
 </div>`;
 });
 }
 
+function filterCategory(cat){
+document.querySelectorAll(".filter button").forEach(btn=>btn.classList.remove("active"));
+event.target.classList.add("active");
+if(cat==="all") renderProducts(products);
+else renderProducts(products.filter(p=>p.category===cat));
+}
+
+function addCart(e,i){
+e.stopPropagation();
+cart.push(products[i]);
+document.getElementById("count").innerText=cart.length;
+renderCart();
+}
+
+function renderCart(){
+let items=document.getElementById("cartItems");
+let total=0;
+items.innerHTML="";
+cart.forEach(p=>{
+let final=p.price-(p.price*p.discount/100);
+total+=final;
+items.innerHTML+=`<p>${p.name} - Rp ${final}</p>`;
+});
+document.getElementById("totalPrice").innerText="Total: Rp "+total;
+}
+
+function toggleCart(){
+document.getElementById("cartPanel").classList.toggle("active");
+}
+
+function checkout(){
+let text="Halo, saya ingin membeli:%0A";
+cart.forEach(p=>{
+text+=p.name+"%0A";
+});
+window.open("https://wa.me/628xxxxxxxxxx?text="+text);
+}
+
 function showPopup(i){
 let p=products[i];
-let finalPrice=p.price-(p.price*p.discount/100);
-document.getElementById("popup-data").innerHTML=`
+let final=p.price-(p.price*p.discount/100);
+document.getElementById("popupContent").innerHTML=`
 <h3>${p.name}</h3>
 <img src="${p.img}" width="100%">
-<p>${p.desc}</p>
-<p><b>Rp ${finalPrice}</b></p>`;
+<p>Harga: Rp ${final}</p>`;
 document.getElementById("popup").style.display="flex";
 }
 
@@ -377,36 +390,18 @@ function closePopup(){
 document.getElementById("popup").style.display="none";
 }
 
-function addToCart(e,i){
-e.stopPropagation();
-cart.push(products[i]);
-document.getElementById("cart-count").innerText=cart.length;
-renderCart();
+function addComment(){
+let input=document.getElementById("commentInput");
+let comment=input.value;
+if(comment){
+let div=document.createElement("p");
+div.innerText=comment;
+document.getElementById("comments").appendChild(div);
+input.value="";
+}
 }
 
-function toggleCart(){
-document.getElementById("cart-panel").classList.toggle("active");
-}
-
-function renderCart(){
-let container=document.getElementById("cart-items");
-container.innerHTML="";
-cart.forEach(item=>{
-container.innerHTML+=`<p>${item.name}</p>`;
-});
-}
-
-function openFull(e,src){
-e.stopPropagation();
-document.getElementById("full-img").src=src;
-document.getElementById("fullscreen").style.display="flex";
-}
-
-function closeFull(){
-document.getElementById("fullscreen").style.display="none";
-}
-
-renderProducts();
+renderProducts(products);
 
 </script>
 
