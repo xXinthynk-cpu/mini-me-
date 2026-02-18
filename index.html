@@ -4,7 +4,6 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Bangkit Tanpa Banyak Bicara</title>
-
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
 <style>
@@ -29,20 +28,19 @@ nav{
     display:flex;
     justify-content:space-between;
     align-items:center;
-    background:rgba(0,0,0,0.6);
-    backdrop-filter:blur(5px);
+    background:rgba(0,0,0,0.4);
+    transition:0.4s;
     z-index:1000;
 }
 
-nav h2{
-    font-weight:400;
-    letter-spacing:2px;
+nav.scrolled{
+    background:#000;
 }
 
 nav a{
     color:#fff;
     text-decoration:none;
-    margin-left:25px;
+    margin-left:20px;
     font-size:14px;
 }
 
@@ -69,25 +67,17 @@ nav a{
     position:relative;
     z-index:2;
     max-width:700px;
-    animation:fadeUp 1.5s ease;
 }
 
-.hero h1{
-    font-size:50px;
-    margin-bottom:20px;
-}
-
-.hero p{
-    color:#ccc;
-    margin-bottom:30px;
-}
+h1{font-size:48px;margin-bottom:20px;}
+h2{margin-bottom:20px;}
 
 .btn{
-    padding:12px 35px;
+    padding:12px 30px;
     border:1px solid #fff;
     color:#fff;
     text-decoration:none;
-    transition:0.4s;
+    transition:0.3s;
 }
 
 .btn:hover{
@@ -101,13 +91,10 @@ section{
     text-align:center;
 }
 
-.story{
-    background:#111;
-}
-
-.products{
-    background:#000;
-}
+.story{background:#111;}
+.products{background:#000;}
+.about{background:#111;}
+.contact{background:#000;}
 
 .product-grid{
     display:flex;
@@ -137,90 +124,172 @@ section{
     margin-bottom:15px;
 }
 
-.statement{
-    background:#111;
-    font-size:28px;
-    font-weight:300;
+/* FORM */
+form{
+    max-width:500px;
+    margin:30px auto;
 }
 
+input, textarea{
+    width:100%;
+    padding:12px;
+    margin:10px 0;
+    background:#111;
+    border:1px solid #333;
+    color:#fff;
+}
+
+button{
+    padding:12px 25px;
+    border:none;
+    background:#fff;
+    color:#000;
+    cursor:pointer;
+}
+
+/* SOCIAL */
+.social{
+    margin-top:30px;
+}
+
+.social a{
+    margin:0 10px;
+    color:#fff;
+    text-decoration:none;
+}
+
+/* ANIMATION */
+.fade{
+    opacity:0;
+    transform:translateY(40px);
+    transition:1s;
+}
+
+.fade.show{
+    opacity:1;
+    transform:translateY(0);
+}
+
+/* FLOATING WA */
+.wa{
+    position:fixed;
+    bottom:20px;
+    right:20px;
+    background:#25D366;
+    color:#fff;
+    padding:15px 18px;
+    border-radius:50%;
+    text-decoration:none;
+    font-weight:bold;
+}
+
+/* FOOTER */
 footer{
     padding:40px;
     font-size:14px;
     color:#666;
 }
 
-/* ANIMATION */
-@keyframes fadeUp{
-    from{
-        opacity:0;
-        transform:translateY(40px);
-    }
-    to{
-        opacity:1;
-        transform:translateY(0);
-    }
-}
-
 @media(max-width:768px){
-    .hero h1{font-size:32px;}
+    h1{font-size:30px;}
     nav{padding:15px 20px;}
 }
 </style>
 </head>
 <body>
 
-<!-- NAVBAR -->
-<nav>
-    <h2>ANONIM</h2>
+<nav id="navbar">
+    <div>ANONIM</div>
     <div>
         <a href="#">Home</a>
         <a href="#story">Story</a>
         <a href="#products">Shop</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
     </div>
 </nav>
 
-<!-- HERO -->
 <section class="hero">
-    <div class="hero-content">
+    <div class="hero-content fade">
         <h1>Bangkit Tanpa Banyak Bicara.</h1>
         <p>Kopi untuk mereka yang pernah jatuh.</p>
         <a href="#products" class="btn">Seduh Sekarang</a>
     </div>
 </section>
 
-<!-- STORY -->
-<section class="story" id="story">
+<section class="story fade" id="story">
     <h2>Tidak Semua Hari Harus Manis.</h2>
+    <p>Brand ini lahir dari fase jatuh. Dari pahit yang nyata.</p>
+    <p>Kami tidak menjanjikan manis. Kami hanya menemani.</p>
+</section>
+
+<section class="products fade" id="products">
+    <h2>Fase Perjalanan</h2>
+    <div class="product-grid">
+        <div class="product">
+            <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085">
+            <h3>Fase 01 – Jatuh</h3>
+            <p>Dark roast. Bold. Smoky.</p>
+            <a href="#" class="btn">Beli</a>
+        </div>
+        <div class="product">
+            <img src="https://images.unsplash.com/photo-1504753793650-d4a2b783c15e">
+            <h3>Fase 02 – Bangun</h3>
+            <p>Medium roast. Balanced.</p>
+            <a href="#" class="btn">Beli</a>
+        </div>
+    </div>
+</section>
+
+<section class="about fade" id="about">
+    <h2>Tentang Penulis</h2>
     <p>
-        Brand ini lahir bukan dari kemenangan.
-        Tapi dari fase jatuh.
-        Dari kehilangan, tekanan, dan rasa pahit yang nyata.
-    </p>
-    <p>
-        Kami tidak menjanjikan manis.
-        Kami hanya menemani.
+        Saya bukan siapa-siapa.  
+        Brand ini lahir dari fase hidup yang tidak mudah.  
+        Ini bukan tentang kopi.  
+        Ini tentang bertahan.
     </p>
 </section>
 
-<!-- PRODUCTS -->
-<section class="products" id="products">
-    <h2>Fase Perjalanan</h2>
+<section class="contact fade" id="contact">
+    <h2>Interaksi</h2>
+    <p>Tinggalkan pesanmu. Ceritakan fase kamu.</p>
+    <form>
+        <input type="text" placeholder="Nama">
+        <input type="email" placeholder="Email">
+        <textarea rows="5" placeholder="Pesan"></textarea>
+        <button type="submit">Kirim</button>
+    </form>
 
-    <div class="product-grid">
-        <div class="product">
-            <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085" alt="">
-            <h3>Fase 01 – Jatuh</h3>
-            <p>Dark roast. Bold. Smoky. Untuk malam panjang penuh pikiran.</p>
-            <a href="#" class="btn">Beli</a>
-        </div>
+    <div class="social">
+        <a href="#">Instagram</a>
+        <a href="#">TikTok</a>
+        <a href="#">Facebook</a>
+    </div>
+</section>
 
-        <div class="product">
-            <img src="https://images.unsplash.com/photo-1504753793650-d4a2b783c15e" alt="">
-            <h3>Fase 02 – Bangun</h3>
-            <p>Medium roast. Balanced. Untuk hari ketika kamu mulai lagi.</p>
-            <a href="#" class="btn">Beli</a>
-        </div>
+<footer>
+    © 2026 ANONIM COFFEE  
+    <br>Diam. Seduh. Naik.
+</footer>
 
-        <div class="product">
-            <img src="https://images.unsplash.com/photo-1511920170033-f8396924c348" alt="">
-            <h3>Fase 03 – Tahan</h3>
+<a href="https://wa.me/628XXXXXXXXXX" class="wa">WA</a>
+
+<script>
+window.addEventListener("scroll", function(){
+    let navbar = document.getElementById("navbar");
+    navbar.classList.toggle("scrolled", window.scrollY > 50);
+
+    let fades = document.querySelectorAll(".fade");
+    fades.forEach(el=>{
+        let position = el.getBoundingClientRect().top;
+        let screenHeight = window.innerHeight;
+        if(position < screenHeight - 100){
+            el.classList.add("show");
+        }
+    });
+});
+</script>
+
+</body>
+</html>
