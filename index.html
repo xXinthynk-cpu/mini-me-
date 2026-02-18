@@ -3,386 +3,426 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ARQÉNZA Luxury Fashion</title>
+<title>Luxury Fashion Store</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
 <style>
 
-/* ===== ROOT COLOR ===== */
-:root{
---dark:#2c1f17;
---brown:#5a3e2b;
---gold:#d4af37;
---cream:#f5efe6;
-}
-
-/* ===== RESET ===== */
-*{margin:0;padding:0;box-sizing:border-box;}
-body{
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
 font-family:'Poppins',sans-serif;
-background:var(--cream);
-color:var(--dark);
+scroll-behavior:smooth;
 }
 
-/* ===== NAV ===== */
+body{
+background:#2c1a12;
+color:#f5f1ea;
+overflow-x:hidden;
+}
+
+/* ================= NAVBAR ================= */
+
 nav{
 position:fixed;
 top:0;
 width:100%;
-background:var(--dark);
-color:white;
-padding:15px 30px;
+background:rgba(44,26,18,0.95);
+backdrop-filter:blur(10px);
 display:flex;
 justify-content:space-between;
 align-items:center;
+padding:15px 40px;
 z-index:1000;
 }
 
 .logo{
 font-family:'Playfair Display',serif;
-color:var(--gold);
 font-size:22px;
+color:gold;
+letter-spacing:2px;
 }
 
 .cart{
-cursor:pointer;
 position:relative;
+cursor:pointer;
+font-size:20px;
 }
 
 .cart span{
 position:absolute;
 top:-8px;
 right:-10px;
-background:var(--gold);
-color:black;
-padding:3px 7px;
-font-size:12px;
+background:gold;
+color:#000;
 border-radius:50%;
+padding:2px 6px;
+font-size:12px;
 }
 
-/* ===== HERO ===== */
+/* ================= HERO ================= */
+
 .hero{
-margin-top:70px;
-height:85vh;
-background:
-linear-gradient(rgba(44,31,23,0.75), rgba(44,31,23,0.85)),
-url("assets/hero.jpg");
-background-size:cover;
-background-position:center;
+height:90vh;
+background:url('assets/hero.jpg') center/cover no-repeat;
 display:flex;
 align-items:center;
 justify-content:center;
 text-align:center;
-color:white;
+position:relative;
+margin-top:70px;
+}
+
+.hero::after{
+content:"";
+position:absolute;
+width:100%;
+height:100%;
+background:linear-gradient(to right, rgba(44,26,18,0.8), rgba(120,80,50,0.5));
+}
+
+.hero-content{
+position:relative;
+z-index:2;
+animation:fadeUp 1.5s ease forwards;
+opacity:0;
 }
 
 .hero h1{
-font-family:'Playfair Display',serif;
 font-size:48px;
-animation:fadeUp 1.5s ease;
+font-family:'Playfair Display',serif;
+color:gold;
+}
+
+.hero p{
+margin-top:15px;
+font-size:18px;
+color:#fff;
 }
 
 @keyframes fadeUp{
-from{opacity:0;transform:translateY(30px);}
-to{opacity:1;transform:translateY(0);}
+to{
+opacity:1;
+transform:translateY(0);
+}
+from{
+opacity:0;
+transform:translateY(40px);
+}
 }
 
-/* ===== FILTER ===== */
-.filter{
-display:flex;
-justify-content:center;
-gap:10px;
-flex-wrap:wrap;
-padding:30px 10px;
+/* ================= SECTION ================= */
+
+section{
+padding:80px 5%;
 }
 
-.filter button{
-padding:8px 18px;
-border:none;
-background:var(--brown);
-color:white;
-cursor:pointer;
-border-radius:20px;
+.section-title{
+text-align:center;
+font-size:32px;
+margin-bottom:50px;
+font-family:'Playfair Display',serif;
+color:gold;
 }
 
-.filter button.active{
-background:var(--gold);
-color:black;
-}
+/* ================= PRODUCT ================= */
 
-/* ===== PRODUCTS ===== */
 .products{
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-gap:20px;
-padding:0 30px 60px;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:30px;
 }
 
 .card{
-background:white;
-border-radius:12px;
+background:#3d2418;
+border-radius:20px;
 overflow:hidden;
-box-shadow:0 5px 15px rgba(0,0,0,0.1);
-transition:0.3s;
+box-shadow:0 0 20px rgba(255,215,0,0.1);
+transition:0.4s;
 cursor:pointer;
+position:relative;
 }
 
-.card:hover{transform:translateY(-5px);}
+.card:hover{
+transform:translateY(-10px);
+}
 
 .card img{
 width:100%;
-height:220px;
+height:300px;
 object-fit:cover;
 }
 
-.card-body{
-padding:15px;
+.card-content{
+padding:20px;
 }
 
 .price{
-color:var(--brown);
-font-weight:bold;
+color:gold;
+font-weight:600;
 }
 
-.old{
+.old-price{
 text-decoration:line-through;
-color:gray;
-font-size:13px;
+font-size:14px;
+opacity:0.6;
 }
 
-.discount{
-background:var(--gold);
-padding:3px 8px;
-font-size:11px;
-border-radius:15px;
-display:inline-block;
-margin-bottom:5px;
-}
-
-/* ===== BUTTON ===== */
-.btn{
-background:var(--gold);
-border:none;
-padding:7px 12px;
-cursor:pointer;
-margin-top:8px;
-border-radius:5px;
-font-weight:bold;
-}
-
-/* ===== CART PANEL ===== */
-.cart-panel{
-position:fixed;
-right:-350px;
+/* Gold shimmer animation */
+.card::before{
+content:"";
+position:absolute;
 top:0;
-width:320px;
+left:-100%;
+width:50%;
 height:100%;
-background:var(--dark);
-color:white;
-padding:20px;
-transition:0.4s;
-overflow-y:auto;
-z-index:2000;
+background:linear-gradient(120deg,transparent,rgba(255,215,0,0.3),transparent);
+transform:skewX(-25deg);
 }
 
-.cart-panel.active{right:0;}
-
-.cart-panel h3{color:var(--gold);}
-
-.total{
-margin-top:15px;
-font-weight:bold;
+.card:hover::before{
+left:150%;
+transition:1s;
 }
 
-/* ===== POPUP ===== */
+/* ================= POPUP ================= */
+
 .popup{
 position:fixed;
 top:0;
 left:0;
 width:100%;
 height:100%;
-background:rgba(0,0,0,0.7);
+background:rgba(0,0,0,0.8);
 display:none;
-align-items:center;
 justify-content:center;
-z-index:3000;
+align-items:center;
+z-index:2000;
 }
 
 .popup-content{
-background:white;
+background:#fff;
+color:#000;
 width:90%;
-max-width:450px;
-padding:20px;
-border-radius:10px;
+max-width:500px;
+padding:30px;
+border-radius:20px;
 position:relative;
+animation:scaleIn 0.4s ease;
+}
+
+@keyframes scaleIn{
+from{transform:scale(0.8);}
+to{transform:scale(1);}
+}
+
+.popup img{
+width:100%;
+border-radius:15px;
+margin-bottom:20px;
+cursor:pointer;
 }
 
 .close{
 position:absolute;
-top:10px;
-right:15px;
+top:15px;
+right:20px;
+cursor:pointer;
+font-size:20px;
+}
+
+/* ================= CART SLIDE ================= */
+
+.cart-popup{
+position:fixed;
+right:-400px;
+top:0;
+width:350px;
+height:100%;
+background:#2c1a12;
+color:#fff;
+padding:30px;
+transition:0.5s;
+z-index:3000;
+overflow:auto;
+box-shadow:-5px 0 20px rgba(255,215,0,0.2);
+}
+
+.cart-popup.active{
+right:0;
+}
+
+/* ================= ABOUT ================= */
+
+.about{
+text-align:center;
+max-width:800px;
+margin:auto;
+line-height:1.8;
+}
+
+/* ================= COMMENT ================= */
+
+.comment-box textarea{
+width:100%;
+padding:15px;
+border-radius:10px;
+border:none;
+margin-bottom:10px;
+}
+
+.comment-box button{
+padding:10px 20px;
+background:gold;
+border:none;
 cursor:pointer;
 }
 
-/* ===== COMMENT ===== */
-.comment-section{
-padding:50px 30px;
-background:var(--brown);
-color:white;
-}
+/* ================= FOOTER ================= */
 
-.comment-section textarea{
-width:100%;
-padding:10px;
-margin:10px 0;
-}
-
-/* ===== ABOUT ===== */
-.about{
-padding:50px 30px;
-}
-
-/* ===== FOOTER ===== */
 footer{
-background:var(--dark);
-color:white;
+background:#1a0f0a;
+padding:40px 5%;
 text-align:center;
-padding:20px;
+}
+
+.social a{
+margin:0 10px;
+color:gold;
+text-decoration:none;
+font-size:18px;
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media(max-width:768px){
+
+.hero h1{
+font-size:30px;
+}
+
+section{
+padding:50px 5%;
+}
+
 }
 
 </style>
 </head>
+
 <body>
 
 <nav>
-<div class="logo">ARQÉNZA</div>
-<div class="cart" onclick="toggleCart()">🛒 <span id="count">0</span></div>
+<div class="logo">LUXURY MODE</div>
+<div class="cart" onclick="toggleCart()">🛒 <span id="cartCount">0</span></div>
 </nav>
 
 <div class="hero">
-<h1>Luxury International Collection</h1>
+<div class="hero-content">
+<h1>Luxury Fashion Collection</h1>
+<p>Elegan • Eksklusif • Berkelas</p>
+</div>
 </div>
 
-<div class="filter">
-<button onclick="filterCategory('all')" class="active">Semua</button>
-<button onclick="filterCategory('best')">Best Seller</button>
-<button onclick="filterCategory('unggulan')">Unggulan</button>
-<button onclick="filterCategory('gamis')">Gamis</button>
-<button onclick="filterCategory('celana')">Celana</button>
-</div>
+<section>
+<h2 class="section-title">Best Seller & Unggulan</h2>
+<div class="products" id="productList"></div>
+</section>
 
-<div class="products" id="productContainer"></div>
-
+<section>
+<h2 class="section-title">Tentang Perusahaan</h2>
 <div class="about">
-<h2>Tentang Kami</h2>
-<p>ARQÉNZA adalah brand fashion premium dengan koleksi gamis elegan dan celana berkualitas untuk anak dan dewasa dengan sentuhan luxury modern.</p>
+Kami adalah brand fashion premium yang menghadirkan koleksi gamis dan celana anak & dewasa dengan kualitas terbaik dan desain eksklusif.
 </div>
+</section>
 
-<div class="comment-section">
-<h2>Komentar Pengunjung</h2>
-<textarea id="commentInput" placeholder="Tulis komentar..."></textarea>
-<button class="btn" onclick="addComment()">Kirim</button>
-<div id="comments"></div>
+<section>
+<h2 class="section-title">Komentar Pengunjung</h2>
+<div class="comment-box">
+<textarea placeholder="Tulis komentar..."></textarea>
+<button>Kirim</button>
 </div>
+</section>
+
+<section>
+<h2 class="section-title">Lokasi Kami</h2>
+<iframe src="https://www.google.com/maps/embed?pb=!1m18..." width="100%" height="300" style="border:0;"></iframe>
+</section>
 
 <footer>
-© 2026 ARQÉNZA Fashion
-</footer>
-
-<div class="cart-panel" id="cartPanel">
-<h3>Keranjang</h3>
-<div id="cartItems"></div>
-<div class="total" id="totalPrice"></div>
-<button class="btn" onclick="checkout()">Checkout WhatsApp</button>
+<p>Alamat: Jl. Fashion No.1 Jakarta</p>
+<div class="social">
+<a href="#">Instagram</a>
+<a href="#">WhatsApp</a>
+<a href="#">TikTok</a>
+<a href="#">Facebook</a>
 </div>
+</footer>
 
 <div class="popup" id="popup">
 <div class="popup-content">
 <span class="close" onclick="closePopup()">✖</span>
-<div id="popupContent"></div>
+<img id="popupImg">
+<h3 id="popupTitle"></h3>
+<p id="popupDesc"></p>
+<p class="price" id="popupPrice"></p>
+<button onclick="addToCart()">Tambah ke Keranjang</button>
 </div>
+</div>
+
+<div class="cart-popup" id="cartPopup">
+<h2>Keranjang</h2>
+<div id="cartItems"></div>
 </div>
 
 <script>
 
 let products=[
-{category:"best",name:"Gamis Gold Premium",price:450000,discount:10,img:"assets/gamis1.jpg"},
-{category:"unggulan",name:"Celana Exclusive",price:250000,discount:15,img:"assets/celana1.jpg"},
-{category:"gamis",name:"Gamis Elegant",price:400000,discount:5,img:"assets/gamis2.jpg"},
-{category:"gamis",name:"Gamis Luxury",price:420000,discount:8,img:"assets/gamis3.jpg"},
-{category:"gamis",name:"Gamis Modern",price:390000,discount:7,img:"assets/gamis4.jpg"},
-{category:"celana",name:"Celana Anak",price:150000,discount:10,img:"assets/celana2.jpg"},
-{category:"celana",name:"Celana Dewasa",price:220000,discount:12,img:"assets/celana3.jpg"},
-{category:"celana",name:"Celana Corduroy",price:300000,discount:15,img:"assets/celana4.jpg"}
+{
+title:"Gamis Premium",
+price:300000,
+discount:20,
+image:"assets/products/1.jpg",
+desc:"Gamis elegan bahan premium"
+},
+{
+title:"Celana Anak",
+price:150000,
+discount:10,
+image:"assets/products/2.jpg",
+desc:"Celana anak nyaman dan stylish"
+}
 ];
 
 let cart=[];
+let selectedProduct=null;
 
-function renderProducts(list){
-let container=document.getElementById("productContainer");
-container.innerHTML="";
-list.forEach((p,i)=>{
-let final=p.price-(p.price*p.discount/100);
+function loadProducts(){
+let container=document.getElementById("productList");
+products.forEach((p,i)=>{
+let finalPrice=p.price-(p.price*p.discount/100);
 container.innerHTML+=`
-<div class="card" onclick="showPopup(${i})">
-<img src="${p.img}">
-<div class="card-body">
-<span class="discount">-${p.discount}%</span>
-<h4>${p.name}</h4>
-<p class="old">Rp ${p.price}</p>
-<p class="price">Rp ${final}</p>
-<button class="btn" onclick="addCart(event,${i})">Tambah</button>
+<div class="card" onclick="openPopup(${i})">
+<img src="${p.image}">
+<div class="card-content">
+<h3>${p.title}</h3>
+<p class="old-price">Rp ${p.price}</p>
+<p class="price">Rp ${finalPrice}</p>
 </div>
-</div>`;
+</div>
+`;
 });
 }
 
-function filterCategory(cat){
-document.querySelectorAll(".filter button").forEach(btn=>btn.classList.remove("active"));
-event.target.classList.add("active");
-if(cat==="all") renderProducts(products);
-else renderProducts(products.filter(p=>p.category===cat));
-}
-
-function addCart(e,i){
-e.stopPropagation();
-cart.push(products[i]);
-document.getElementById("count").innerText=cart.length;
-renderCart();
-}
-
-function renderCart(){
-let items=document.getElementById("cartItems");
-let total=0;
-items.innerHTML="";
-cart.forEach(p=>{
-let final=p.price-(p.price*p.discount/100);
-total+=final;
-items.innerHTML+=`<p>${p.name} - Rp ${final}</p>`;
-});
-document.getElementById("totalPrice").innerText="Total: Rp "+total;
-}
-
-function toggleCart(){
-document.getElementById("cartPanel").classList.toggle("active");
-}
-
-function checkout(){
-let text="Halo, saya ingin membeli:%0A";
-cart.forEach(p=>{
-text+=p.name+"%0A";
-});
-window.open("https://wa.me/628xxxxxxxxxx?text="+text);
-}
-
-function showPopup(i){
-let p=products[i];
-let final=p.price-(p.price*p.discount/100);
-document.getElementById("popupContent").innerHTML=`
-<h3>${p.name}</h3>
-<img src="${p.img}" width="100%">
-<p>Harga: Rp ${final}</p>`;
+function openPopup(index){
+selectedProduct=products[index];
+document.getElementById("popupImg").src=selectedProduct.image;
+document.getElementById("popupTitle").innerText=selectedProduct.title;
+document.getElementById("popupDesc").innerText=selectedProduct.desc;
+let finalPrice=selectedProduct.price-(selectedProduct.price*selectedProduct.discount/100);
+document.getElementById("popupPrice").innerText="Rp "+finalPrice;
 document.getElementById("popup").style.display="flex";
 }
 
@@ -390,18 +430,17 @@ function closePopup(){
 document.getElementById("popup").style.display="none";
 }
 
-function addComment(){
-let input=document.getElementById("commentInput");
-let comment=input.value;
-if(comment){
-let div=document.createElement("p");
-div.innerText=comment;
-document.getElementById("comments").appendChild(div);
-input.value="";
-}
+function addToCart(){
+cart.push(selectedProduct);
+document.getElementById("cartCount").innerText=cart.length;
+closePopup();
 }
 
-renderProducts(products);
+function toggleCart(){
+document.getElementById("cartPopup").classList.toggle("active");
+}
+
+loadProducts();
 
 </script>
 
