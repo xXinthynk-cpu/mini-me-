@@ -3,293 +3,249 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Bangkit Tanpa Banyak Bicara</title>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+<title>GLINDING COFFEE | Luxury Coffee Product</title>
 
 <style>
 *{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    scroll-behavior:smooth;
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family: 'Poppins', sans-serif;
 }
 
 body{
-    font-family:'Poppins',sans-serif;
-    background:#000;
-    color:#fff;
+background:#111;
+color:#eee;
 }
 
-/* NAVBAR */
-nav{
-    position:fixed;
-    width:100%;
-    padding:20px 50px;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    background:rgba(0,0,0,0.4);
-    transition:0.4s;
-    z-index:1000;
+header{
+position:fixed;
+width:100%;
+padding:20px 8%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+background:rgba(0,0,0,0.6);
+backdrop-filter:blur(10px);
+z-index:1000;
 }
 
-nav.scrolled{
-    background:#000;
+header h1{
+font-size:20px;
+letter-spacing:3px;
+color:#d4a373;
 }
 
-nav a{
-    color:#fff;
-    text-decoration:none;
-    margin-left:20px;
-    font-size:14px;
+header a{
+color:white;
+text-decoration:none;
+margin-left:25px;
+font-size:14px;
 }
 
-/* HERO */
 .hero{
-    height:100vh;
-    background:url('https://images.unsplash.com/photo-1509042239860-f550ce710b93') center/cover no-repeat;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    text-align:center;
-    position:relative;
+height:100vh;
+display:flex;
+align-items:center;
+justify-content:space-between;
+padding:0 8%;
+background:linear-gradient(to right,#000000cc,#00000099),
+url('https://images.unsplash.com/photo-1509042239860-f550ce710b93') center/cover no-repeat;
 }
 
-.hero::after{
-    content:'';
-    position:absolute;
-    width:100%;
-    height:100%;
-    background:rgba(0,0,0,0.7);
+.hero-text{
+max-width:500px;
 }
 
-.hero-content{
-    position:relative;
-    z-index:2;
-    max-width:700px;
+.hero-text h2{
+font-size:54px;
+margin-bottom:20px;
+color:#d4a373;
 }
 
-h1{font-size:48px;margin-bottom:20px;}
-h2{margin-bottom:20px;}
+.hero-text p{
+line-height:1.7;
+margin-bottom:30px;
+color:#ccc;
+}
 
 .btn{
-    padding:12px 30px;
-    border:1px solid #fff;
-    color:#fff;
-    text-decoration:none;
-    transition:0.3s;
+padding:14px 35px;
+background:#d4a373;
+border:none;
+border-radius:40px;
+color:#111;
+font-weight:bold;
+text-decoration:none;
+transition:0.3s;
 }
 
 .btn:hover{
-    background:#fff;
-    color:#000;
+background:white;
 }
 
-/* SECTION */
-section{
-    padding:100px 20px;
-    text-align:center;
+.section{
+padding:100px 8%;
 }
 
-.story{background:#111;}
-.products{background:#000;}
-.about{background:#111;}
-.contact{background:#000;}
-
-.product-grid{
-    display:flex;
-    flex-wrap:wrap;
-    justify-content:center;
-    gap:40px;
-    margin-top:50px;
+.section-title{
+text-align:center;
+font-size:36px;
+margin-bottom:70px;
+color:#d4a373;
 }
 
-.product{
-    width:280px;
-    background:#111;
-    padding:20px;
-    border:1px solid #222;
-    transition:0.4s;
+.feature{
+display:flex;
+align-items:center;
+gap:60px;
+margin-bottom:80px;
+flex-wrap:wrap;
 }
 
-.product:hover{
-    transform:translateY(-10px);
-    border:1px solid #555;
+.feature img{
+width:400px;
+border-radius:20px;
+box-shadow:0 20px 50px rgba(0,0,0,0.5);
 }
 
-.product img{
-    width:100%;
-    height:200px;
-    object-fit:cover;
-    margin-bottom:15px;
+.feature-text{
+max-width:500px;
 }
 
-/* FORM */
-form{
-    max-width:500px;
-    margin:30px auto;
+.feature-text h3{
+font-size:26px;
+margin-bottom:15px;
+color:#d4a373;
 }
 
-input, textarea{
-    width:100%;
-    padding:12px;
-    margin:10px 0;
-    background:#111;
-    border:1px solid #333;
-    color:#fff;
+.feature-text p{
+line-height:1.8;
+color:#ccc;
 }
 
-button{
-    padding:12px 25px;
-    border:none;
-    background:#fff;
-    color:#000;
-    cursor:pointer;
+.price-section{
+text-align:center;
+padding:80px 8%;
+background:#1a1a1a;
 }
 
-/* SOCIAL */
-.social{
-    margin-top:30px;
+.price{
+font-size:40px;
+color:#d4a373;
+margin:20px 0;
 }
 
-.social a{
-    margin:0 10px;
-    color:#fff;
-    text-decoration:none;
+.testimoni{
+padding:100px 8%;
+text-align:center;
 }
 
-/* ANIMATION */
-.fade{
-    opacity:0;
-    transform:translateY(40px);
-    transition:1s;
+.testimoni p{
+max-width:600px;
+margin:auto;
+color:#bbb;
+font-style:italic;
 }
 
-.fade.show{
-    opacity:1;
-    transform:translateY(0);
-}
-
-/* FLOATING WA */
-.wa{
-    position:fixed;
-    bottom:20px;
-    right:20px;
-    background:#25D366;
-    color:#fff;
-    padding:15px 18px;
-    border-radius:50%;
-    text-decoration:none;
-    font-weight:bold;
-}
-
-/* FOOTER */
-footer{
-    padding:40px;
-    font-size:14px;
-    color:#666;
+.footer{
+padding:40px;
+text-align:center;
+background:#000;
+color:#777;
+font-size:14px;
 }
 
 @media(max-width:768px){
-    h1{font-size:30px;}
-    nav{padding:15px 20px;}
+.hero{
+flex-direction:column;
+text-align:center;
+justify-content:center;
+gap:40px;
+}
+
+.feature{
+flex-direction:column;
+text-align:center;
+}
+
+.feature img{
+width:100%;
+}
 }
 </style>
 </head>
+
 <body>
 
-<nav id="navbar">
-    <div>ANONIM</div>
-    <div>
-        <a href="#">Home</a>
-        <a href="#story">Story</a>
-        <a href="#products">Shop</a>
-        <a href="#about">About</a>
-        <a href="#contact">Contact</a>
-    </div>
-</nav>
+<header>
+<h1>GLINDING COFFEE</h1>
+<div>
+<a href="#">Home</a>
+<a href="#">Story</a>
+<a href="#">Buy</a>
+</div>
+</header>
 
 <section class="hero">
-    <div class="hero-content fade">
-        <h1>Bangkit Tanpa Banyak Bicara.</h1>
-        <p>Kopi untuk mereka yang pernah jatuh.</p>
-        <a href="#products" class="btn">Seduh Sekarang</a>
-    </div>
+<div class="hero-text">
+<h2>Elevate Your Coffee Experience</h2>
+<p>
+Biji kopi premium pilihan dari dataran tinggi Indonesia.
+Diproses dengan teknik roasting modern untuk menghasilkan
+rasa bold, elegan, dan berkelas.
+</p>
+<a href="#" class="btn">Order Now</a>
+</div>
 </section>
 
-<section class="story fade" id="story">
-    <h2>Tidak Semua Hari Harus Manis.</h2>
-    <p>Brand ini lahir dari fase jatuh. Dari pahit yang nyata.</p>
-    <p>Kami tidak menjanjikan manis. Kami hanya menemani.</p>
+<section class="section">
+<h2 class="section-title">Why Choose Glinding?</h2>
+
+<div class="feature">
+<img src="https://images.unsplash.com/photo-1447933601403-0c6688de566e">
+<div class="feature-text">
+<h3>Single Origin Premium</h3>
+<p>
+Menggunakan 100% biji kopi Arabica single origin dengan kualitas ekspor.
+Memberikan rasa yang lebih bersih dan karakter unik.
+</p>
+</div>
+</div>
+
+<div class="feature">
+<div class="feature-text">
+<h3>Luxury Roasting Process</h3>
+<p>
+Proses roasting presisi untuk menjaga keseimbangan rasa,
+aroma kaya, dan aftertaste yang smooth.
+</p>
+</div>
+<img src="https://images.unsplash.com/photo-1498804103079-a6351b050096">
+</div>
+
 </section>
 
-<section class="products fade" id="products">
-    <h2>Fase Perjalanan</h2>
-    <div class="product-grid">
-        <div class="product">
-            <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085">
-            <h3>Fase 01 – Jatuh</h3>
-            <p>Dark roast. Bold. Smoky.</p>
-            <a href="#" class="btn">Beli</a>
-        </div>
-        <div class="product">
-            <img src="https://images.unsplash.com/photo-1504753793650-d4a2b783c15e">
-            <h3>Fase 02 – Bangun</h3>
-            <p>Medium roast. Balanced.</p>
-            <a href="#" class="btn">Beli</a>
-        </div>
-    </div>
+<section class="price-section">
+<h2>Premium Package</h2>
+<div class="price">Rp 149.000</div>
+<p>250gr Fresh Roasted Coffee Beans</p>
+<br>
+<a href="#" class="btn">Buy Now</a>
 </section>
 
-<section class="about fade" id="about">
-    <h2>Tentang Penulis</h2>
-    <p>
-        Saya bukan siapa-siapa.  
-        Brand ini lahir dari fase hidup yang tidak mudah.  
-        Ini bukan tentang kopi.  
-        Ini tentang bertahan.
-    </p>
+<section class="testimoni">
+<h2 class="section-title">What They Say</h2>
+<p>
+"Ini bukan sekadar kopi. Ini pengalaman.
+Aromanya dalam, rasanya kuat tapi smooth.
+Benar-benar premium."
+</p>
 </section>
 
-<section class="contact fade" id="contact">
-    <h2>Interaksi</h2>
-    <p>Tinggalkan pesanmu. Ceritakan fase kamu.</p>
-    <form>
-        <input type="text" placeholder="Nama">
-        <input type="email" placeholder="Email">
-        <textarea rows="5" placeholder="Pesan"></textarea>
-        <button type="submit">Kirim</button>
-    </form>
-
-    <div class="social">
-        <a href="#">Instagram</a>
-        <a href="#">TikTok</a>
-        <a href="#">Facebook</a>
-    </div>
-</section>
-
-<footer>
-    © 2026 ANONIM COFFEE  
-    <br>Diam. Seduh. Naik.
-</footer>
-
-<a href="https://wa.me/628XXXXXXXXXX" class="wa">WA</a>
-
-<script>
-window.addEventListener("scroll", function(){
-    let navbar = document.getElementById("navbar");
-    navbar.classList.toggle("scrolled", window.scrollY > 50);
-
-    let fades = document.querySelectorAll(".fade");
-    fades.forEach(el=>{
-        let position = el.getBoundingClientRect().top;
-        let screenHeight = window.innerHeight;
-        if(position < screenHeight - 100){
-            el.classList.add("show");
-        }
-    });
-});
-</script>
+<div class="footer">
+© 2026 Glinding Coffee | Luxury Coffee Brand
+</div>
 
 </body>
 </html>
