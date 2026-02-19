@@ -1,251 +1,143 @@
 <!DOCTYPE html>
-<html lang="id">
+<html>
 <head>
 <meta charset="UTF-8">
+<title>Glinding Coffee</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>GLINDING COFFEE | Luxury Coffee Product</title>
 
 <style>
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family: 'Poppins', sans-serif;
-}
-
-body{
-background:#111;
-color:#eee;
-}
-
-header{
-position:fixed;
-width:100%;
-padding:20px 8%;
-display:flex;
-justify-content:space-between;
-align-items:center;
-background:rgba(0,0,0,0.6);
-backdrop-filter:blur(10px);
-z-index:1000;
-}
-
-header h1{
-font-size:20px;
-letter-spacing:3px;
-color:#d4a373;
-}
-
-header a{
-color:white;
-text-decoration:none;
-margin-left:25px;
-font-size:14px;
-}
-
-.hero{
-height:100vh;
-display:flex;
-align-items:center;
-justify-content:space-between;
-padding:0 8%;
-background:linear-gradient(to right,#000000cc,#00000099),
-url('https://images.unsplash.com/photo-1509042239860-f550ce710b93') center/cover no-repeat;
-}
-
-.hero-text{
-max-width:500px;
-}
-
-.hero-text h2{
-font-size:54px;
-margin-bottom:20px;
-color:#d4a373;
-}
-
-.hero-text p{
-line-height:1.7;
-margin-bottom:30px;
-color:#ccc;
-}
-
-.btn{
-padding:14px 35px;
-background:#d4a373;
-border:none;
-border-radius:40px;
-color:#111;
-font-weight:bold;
-text-decoration:none;
-transition:0.3s;
-}
-
-.btn:hover{
-background:white;
-}
-
-.section{
-padding:100px 8%;
-}
-
-.section-title{
-text-align:center;
-font-size:36px;
-margin-bottom:70px;
-color:#d4a373;
-}
-
-.feature{
-display:flex;
-align-items:center;
-gap:60px;
-margin-bottom:80px;
-flex-wrap:wrap;
-}
-
-.feature img{
-width:400px;
-border-radius:20px;
-box-shadow:0 20px 50px rgba(0,0,0,0.5);
-}
-
-.feature-text{
-max-width:500px;
-}
-
-.feature-text h3{
-font-size:26px;
-margin-bottom:15px;
-color:#d4a373;
-}
-
-.feature-text p{
-line-height:1.8;
-color:#ccc;
-}
-
-.price-section{
-text-align:center;
-padding:80px 8%;
-background:#1a1a1a;
-}
-
-.price{
-font-size:40px;
-color:#d4a373;
-margin:20px 0;
-}
-
-.testimoni{
-padding:100px 8%;
-text-align:center;
-}
-
-.testimoni p{
-max-width:600px;
-margin:auto;
-color:#bbb;
-font-style:italic;
-}
-
-.footer{
-padding:40px;
-text-align:center;
-background:#000;
-color:#777;
-font-size:14px;
-}
-
-@media(max-width:768px){
-.hero{
-flex-direction:column;
-text-align:center;
-justify-content:center;
-gap:40px;
-}
-
-.feature{
-flex-direction:column;
-text-align:center;
-}
-
-.feature img{
-width:100%;
-}
-}
+body{font-family:Arial;margin:0;background:#111;color:white}
+header{padding:20px;background:#000;display:flex;justify-content:space-between}
+button{padding:8px 15px;background:#d4a373;border:none;cursor:pointer}
+.container{padding:30px}
+.product{background:#1e1e1e;padding:20px;margin-bottom:20px;border-radius:10px}
+img{max-width:200px;border-radius:10px}
+input,textarea{width:100%;padding:8px;margin:5px 0}
+.hidden{display:none}
 </style>
 </head>
 
 <body>
 
 <header>
-<h1>GLINDING COFFEE</h1>
-<div>
-<a href="#">Home</a>
-<a href="#">Story</a>
-<a href="#">Buy</a>
-</div>
+<h2>GLINDING COFFEE</h2>
+<button onclick="showLogin()">Admin</button>
 </header>
 
-<section class="hero">
-<div class="hero-text">
-<h2>Elevate Your Coffee Experience</h2>
-<p>
-Biji kopi premium pilihan dari dataran tinggi Indonesia.
-Diproses dengan teknik roasting modern untuk menghasilkan
-rasa bold, elegan, dan berkelas.
-</p>
-<a href="#" class="btn">Order Now</a>
-</div>
-</section>
+<div class="container">
 
-<section class="section">
-<h2 class="section-title">Why Choose Glinding?</h2>
+<div id="productList"></div>
 
-<div class="feature">
-<img src="https://images.unsplash.com/photo-1447933601403-0c6688de566e">
-<div class="feature-text">
-<h3>Single Origin Premium</h3>
-<p>
-Menggunakan 100% biji kopi Arabica single origin dengan kualitas ekspor.
-Memberikan rasa yang lebih bersih dan karakter unik.
-</p>
-</div>
+<div id="adminPanel" class="hidden">
+<h3>Tambah Produk</h3>
+<input type="text" id="title" placeholder="Judul">
+<textarea id="desc" placeholder="Deskripsi"></textarea>
+<input type="text" id="price" placeholder="Harga">
+<input type="file" id="image">
+<button onclick="addProduct()">Tambah</button>
+<hr>
+<button onclick="logout()">Logout</button>
 </div>
 
-<div class="feature">
-<div class="feature-text">
-<h3>Luxury Roasting Process</h3>
-<p>
-Proses roasting presisi untuk menjaga keseimbangan rasa,
-aroma kaya, dan aftertaste yang smooth.
-</p>
-</div>
-<img src="https://images.unsplash.com/photo-1498804103079-a6351b050096">
+<div id="loginPanel" class="hidden">
+<h3>Login Admin</h3>
+<input type="text" id="username" placeholder="Username">
+<input type="password" id="password" placeholder="Password">
+<button onclick="login()">Login</button>
 </div>
 
-</section>
-
-<section class="price-section">
-<h2>Premium Package</h2>
-<div class="price">Rp 149.000</div>
-<p>250gr Fresh Roasted Coffee Beans</p>
-<br>
-<a href="#" class="btn">Buy Now</a>
-</section>
-
-<section class="testimoni">
-<h2 class="section-title">What They Say</h2>
-<p>
-"Ini bukan sekadar kopi. Ini pengalaman.
-Aromanya dalam, rasanya kuat tapi smooth.
-Benar-benar premium."
-</p>
-</section>
-
-<div class="footer">
-© 2026 Glinding Coffee | Luxury Coffee Brand
 </div>
+
+<script>
+
+let products = JSON.parse(localStorage.getItem("products")) || [];
+
+function saveData(){
+localStorage.setItem("products", JSON.stringify(products));
+}
+
+function displayProducts(){
+let list = document.getElementById("productList");
+list.innerHTML="";
+products.forEach((p,index)=>{
+list.innerHTML += `
+<div class="product">
+<h3>${p.title}</h3>
+<img src="${p.image}">
+<p>${p.desc}</p>
+<b>${p.price}</b><br><br>
+<button onclick="editProduct(${index})">Edit</button>
+<button onclick="deleteProduct(${index})">Hapus</button>
+</div>
+`;
+});
+}
+
+function addProduct(){
+let title=document.getElementById("title").value;
+let desc=document.getElementById("desc").value;
+let price=document.getElementById("price").value;
+let imageInput=document.getElementById("image");
+
+let reader=new FileReader();
+reader.onload=function(){
+products.push({
+title:title,
+desc:desc,
+price:price,
+image:reader.result
+});
+saveData();
+displayProducts();
+};
+
+if(imageInput.files[0]){
+reader.readAsDataURL(imageInput.files[0]);
+}
+}
+
+function deleteProduct(index){
+products.splice(index,1);
+saveData();
+displayProducts();
+}
+
+function editProduct(index){
+let newTitle=prompt("Edit Judul",products[index].title);
+let newDesc=prompt("Edit Deskripsi",products[index].desc);
+let newPrice=prompt("Edit Harga",products[index].price);
+
+products[index].title=newTitle;
+products[index].desc=newDesc;
+products[index].price=newPrice;
+
+saveData();
+displayProducts();
+}
+
+function showLogin(){
+document.getElementById("loginPanel").classList.remove("hidden");
+}
+
+function login(){
+let user=document.getElementById("username").value;
+let pass=document.getElementById("password").value;
+
+if(user==="admin" && pass==="123456"){
+document.getElementById("loginPanel").classList.add("hidden");
+document.getElementById("adminPanel").classList.remove("hidden");
+} else {
+alert("Login salah");
+}
+}
+
+function logout(){
+document.getElementById("adminPanel").classList.add("hidden");
+}
+
+displayProducts();
+
+</script>
 
 </body>
 </html>
